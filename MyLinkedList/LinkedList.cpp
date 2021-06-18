@@ -86,3 +86,40 @@ Node* LinkedList::FindNode(int _index)
 
 	return TempNode;
 }
+
+void LinkedList::Erase(int _index)
+{
+	if (size < _index)
+	{
+		cout << "out of range" << endl;
+		return;
+	}
+
+	Node * prevNode = new Node;
+	Node* deleteNode = new Node;
+
+	prevNode = FindNode(_index - 1);
+	deleteNode = FindNode(_index);
+
+	prevNode->nextNode = deleteNode->nextNode;
+
+	delete deleteNode;
+
+	size--;
+
+	PrintNode();
+}
+
+void LinkedList::PrintNode()
+{
+	int index = 0;
+	cout << "================================================" << endl;
+	Node* TempNode = HeadNode;
+
+	while (TempNode->nextNode != nullptr)
+	{
+		index++;
+		cout << " Index : " << index << "/ Value : " << TempNode->value << endl;
+		TempNode = TempNode->nextNode;
+	}
+}

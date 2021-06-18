@@ -19,5 +19,7 @@ int main()
     
     List->Insert(3, 100);
 
+    List->Erase(3);
+
 }
 

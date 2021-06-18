@@ -110,10 +110,50 @@ void LinkedList::Erase(int _index)
 	PrintNode();
 }
 
+void LinkedList::Clear()
+{
+	Node* TempNode = HeadNode;
+	while (TempNode->nextNode != nullptr)
+	{
+		Node* PrevNode = TempNode;
+		TempNode = TempNode->nextNode;
+		HeadNode = TempNode;
+		delete PrevNode;
+	}
+	delete HeadNode;
+
+	size = 0;
+
+}
+
+bool LinkedList::Empty()
+{
+	return (size == 0)? true : false;
+}
+
+void LinkedList::Pop_back()
+{
+	Node* deleteNode = FindNode(size);
+	cout << "인덱스 : " << size << "/ Value : " << deleteNode->value << " 값을 꺼냈습니다." << endl;
+	delete deleteNode;
+	size--;
+	FindNode(size)->nextNode = nullptr;
+
+	PrintNode();
+	
+}
+
 void LinkedList::PrintNode()
 {
 	int index = 0;
 	cout << "================================================" << endl;
+
+	if (size == 0)
+	{
+		cout << " 데이터가 없습니다." << endl;
+		return;
+	}
+
 	Node* TempNode = HeadNode;
 
 	while (TempNode->nextNode != nullptr)
@@ -122,4 +162,6 @@ void LinkedList::PrintNode()
 		cout << " Index : " << index << "/ Value : " << TempNode->value << endl;
 		TempNode = TempNode->nextNode;
 	}
+	index++;
+    cout << " Index : " << index << "/ Value : " << TempNode->value << endl;
 }

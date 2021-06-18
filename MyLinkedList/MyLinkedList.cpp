@@ -15,11 +15,15 @@ int main()
     List->Append(25);
     List->Append(30);
 
+    List->PrintNode();
+
     List->FindNode(3);
     
     List->Insert(3, 100);
 
     List->Erase(3);
 
+    List->Pop_back();
+   // List->Clear();
 }
 

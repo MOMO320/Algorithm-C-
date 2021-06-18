@@ -21,7 +21,7 @@ public:
 
 	void Erase(int _index);
 	void Clear();
-	void Empty();
+	bool Empty();
 	void Pop_back();
 
 	void PrintNode();

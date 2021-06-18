@@ -9,11 +9,15 @@ int main()
 {
     LinkedList* List = new LinkedList;
 
-    List->Append(1);
-    List->Append(2);
-    List->Append(3);
-    List->Append(4);
-    List->Append(5);
+    List->Append(10);
+    List->Append(15);
+    List->Append(20);
+    List->Append(25);
+    List->Append(30);
+
+    List->FindNode(3);
+    
+    List->Insert(3, 100);
 
 }
 

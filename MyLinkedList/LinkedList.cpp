@@ -40,9 +40,49 @@ void LinkedList::Append(int _value)
 
 void LinkedList::Insert(int _index, int _value)
 {
+	if (_index > size)
+		return;
+	Node* newNode = new Node;
+
+	newNode->value = _value;
+	newNode->nextNode = FindNode(_index)->nextNode;
+	FindNode(_index)->nextNode = newNode;
+
+	size += 1;
+
+	cout << _index << " 번째 인덱스에 삽입 노드를 삽입했습니다." << endl;
+
+	Node* TempNode = HeadNode;
+	cout << "==================================" << endl;
+	
+	int count = 0;
+	while (TempNode->nextNode != nullptr)
+	{
+		count++;
+		cout << count << " 번째 인덱스 의 Value : " << TempNode->value << endl;
+		TempNode = TempNode->nextNode;
+	}
 }
 
 Node* LinkedList::FindNode(int _index)
 {
-	return nullptr;
+	if (size < _index)
+	{
+		cout << " 인덱스 범위를 초과 했습니다." << endl;
+		return nullptr;
+	}
+
+	Node* TempNode = HeadNode;
+	
+	if (_index == 1)
+		return TempNode;
+
+	for (int i = 0; i < _index-1; i++)
+	{
+		TempNode = TempNode->nextNode;
+	}
+
+	cout << "찾으시는 Index : " << _index << "/ Value : " << TempNode->value << endl;
+
+	return TempNode;
 }

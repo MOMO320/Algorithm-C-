@@ -106,7 +106,7 @@ public:
 	Point(int _x)
 		:X(_x), Y(0)
 	{
-		std::cout << "Point::int 莫 持失切! " << std::endl;
+		std::cout << " Point::int 莫 持失切! " << std::endl;
 	}
 
 	Point(int _x, int _y)
